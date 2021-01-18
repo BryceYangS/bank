@@ -1,12 +1,13 @@
 package com.minibank.customer.domain.dto;
 
 import com.minibank.customer.domain.entity.Customer;
+import java.time.LocalDate;
 
 public class CustomerDTO {
 
   private String customerId;
   private String name;
-  private int    age;
+  private LocalDate birthDay;
   private String gender;
   private String phoneNumber;
   private String address;
@@ -27,12 +28,12 @@ public class CustomerDTO {
     this.name = name;
   }
 
-  public int getAge() {
-    return age;
+  public LocalDate getBirthDay() {
+    return birthDay;
   }
 
-  public void setAge(int age) {
-    this.age = age;
+  public void setBirthDay(LocalDate birthDay) {
+    this.birthDay = birthDay;
   }
 
   public String getGender() {
@@ -66,14 +67,14 @@ public class CustomerDTO {
   public CustomerDTO(Customer customer) {
     this.customerId = customer.getCustomerId();
     this.name = customer.getName();
-    this.age = customer.getAge();
+    this.birthDay = customer.getBirthDay();
     this.gender = customer.getGender();
     this.phoneNumber = customer.getPhoneNumber();
     this.address = customer.getAddress();
   }
 
   public Customer toEntity() {
-    return new Customer.Builder(customerId).name(name).age(age).gender(gender).phoneNumber(phoneNumber).address(address).build();
+    return new Customer.Builder(customerId).name(name).birthDay(birthDay).gender(gender).phoneNumber(phoneNumber).address(address).build();
   }
 
 }

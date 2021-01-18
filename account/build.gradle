@@ -1,0 +1,61 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.1'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.minibank'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	//Kafka
+	compile('org.springframework.kafka:spring-kafka')
+
+	//Json
+	compile('com.google.code.gson:gson:2.8.5')
+
+	//swagger
+	compile 'io.springfox:springfox-swagger2:2.7.0';
+	compile 'io.springfox:springfox-swagger-ui:2.7.0';
+
+	//Logging
+	compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
+
+	//Actuator
+	compile('org.springframework.boot:spring-boot-starter-actuator')
+
+	//Hystrix
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.1.RELEASE'
+
+//	//Ribbon
+//	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.2.1.RELEASE'
+
+	compile 'mysql:mysql-connector-java'
+
+	runtimeOnly 'com.h2database:h2'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+
+}
+
+test {
+	useJUnitPlatform()
+}

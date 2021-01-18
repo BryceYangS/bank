@@ -28,6 +28,10 @@ public class CustomerController {
   @ApiOperation(value = "고객기본조회", httpMethod = "GET", notes = "고객기본조회")
   @RequestMapping(method = RequestMethod.GET, path = "/customer/v1.0/{cstmId}")
   public CustomerDTO retrieveCustomer(@PathVariable(name = "cstmId") String cstmId) throws Exception{
+
+    //TODO : 10초 응답지연 코드 추가
+    Thread.sleep(10000);
+
     return customerService.retrieveCustomer(cstmId);
   }
 

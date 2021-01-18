@@ -1,18 +1,10 @@
-package com.minibank.customer.domain.entity;
+package com.minibank.account.rest.customer.entity;
 
 import java.time.LocalDate;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import lombok.NoArgsConstructor;
 
-@Entity
 @NoArgsConstructor
 public class Customer {
-
-
-  @Id @GeneratedValue
-  private Long no;
 
   private String customerId;
   private String name;
@@ -21,9 +13,10 @@ public class Customer {
   private String phoneNumber;
   private String address;
 
-  public Long getNo() {
-    return no;
-  }
+  /*이체 한도 정보*/
+  private Long oneTmTrnfLmt;
+  private Long oneDyTrnfLmt;
+
   public String getCustomerId() {
     return customerId;
   }
@@ -42,21 +35,21 @@ public class Customer {
   public String getAddress() {
     return address;
   }
+  public Long getOneTmTrnfLmt() { return oneTmTrnfLmt; }
+  public Long getOneDyTrnfLmt() { return oneDyTrnfLmt; }
 
   public static class Builder {
 
-    // Required parameters
-    private final String customerId;
-
-    // Optional parameters
+    private String customerId;
     private String name;
     private LocalDate birthDay;
     private String gender;
     private String phoneNumber;
     private String address;
 
-    public Builder(String customerId) {
+    public Builder customerId (String customerId) {
       this.customerId = customerId;
+      return this;
     }
 
     public Builder name(String name) {
@@ -86,12 +79,12 @@ public class Customer {
   }
 
   private Customer(Builder builder) {
-     customerId = builder.customerId;
-     name = builder.name;
-     birthDay = builder.birthDay;
-     gender = builder.gender;
-     phoneNumber = builder.phoneNumber;
-     address = builder.address;
+    customerId = builder.customerId;
+    name = builder.name;
+    birthDay = builder.birthDay;
+    gender = builder.gender;
+    phoneNumber = builder.phoneNumber;
+    address = builder.address;
   }
 
 }
