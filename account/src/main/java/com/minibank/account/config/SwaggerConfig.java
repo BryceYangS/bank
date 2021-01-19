@@ -1,4 +1,4 @@
-package com.minibank.customer.config;
+package com.minibank.account.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
