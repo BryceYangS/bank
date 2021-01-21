@@ -4,6 +4,7 @@ import com.minibank.customer.domain.dto.CustomerDTO;
 import com.minibank.customer.service.CustomerService;
 import io.swagger.annotations.ApiOperation;
 import javax.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 public class CustomerController {
 
@@ -29,8 +31,9 @@ public class CustomerController {
   @RequestMapping(method = RequestMethod.GET, path = "/customer/v1.0/{cstmId}")
   public CustomerDTO retrieveCustomer(@PathVariable(name = "cstmId") String cstmId) throws Exception{
 
+    log.debug("=======Circuit Breaker 테스트");
     //TODO : 10초 응답지연 코드 추가
-//    Thread.sleep(10000);
+    Thread.sleep(10000);
 
     return customerService.retrieveCustomer(cstmId);
   }
