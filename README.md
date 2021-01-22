@@ -10,7 +10,7 @@
     + [https://spring.io/projects/spring-cloud](https://spring.io/projects/spring-cloud)  
     + [Spring Cloud Hoxton Release Notes](https://github.com/spring-cloud/spring-cloud-release/wiki/Spring-Cloud-Hoxton-Release-Notes)
       
-    ![스프링클라우드와 스프링부트](springBoot_springCloud.png)
+    ![스프링클라우드와 스프링부트](WhatILearned/img/springBoot_springCloud.png)
 
 - Spring Cloud : Hoxton.SR8
 - Lombok
