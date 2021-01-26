@@ -2,6 +2,7 @@ package com.minibank.account.service;
 
 import com.minibank.account.domain.dto.AccountDTO;
 import com.minibank.account.domain.entity.Account;
+import com.minibank.account.domain.mapper.AccountMapper;
 import com.minibank.account.domain.repository.AccountRepository;
 import com.minibank.account.rest.customer.CustomerComposite;
 import com.minibank.account.rest.customer.entity.Customer;
@@ -34,7 +35,7 @@ public class AccountServiceImpl implements AccountService{
     Customer customer = customerComposite.retrieveCustomer(accountDto.getCustomerId());
 
 
-    Account account = new Account.Builder(accountDto.getAccountNo())
+    Account account = Account.builder().accountNo(accountDto.getAccountNo())
         .accountBalance(accountDto.getAccountBalance())
         .accountNm(accountDto.getAccountNm())
         .customerId(customer.getCustomerId())

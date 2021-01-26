@@ -2,17 +2,20 @@ package com.minibank.customer.service;
 
 import com.minibank.customer.domain.dto.CustomerDTO;
 import com.minibank.customer.domain.entity.Customer;
+import com.minibank.customer.domain.mapper.CustomerMapper;
 import com.minibank.customer.domain.repository.CustomerRepository;
 import com.minibank.customer.exception.BusinessException;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service("customerService")
+@RequiredArgsConstructor
 public class CustomerServiceImpl implements CustomerService{
 
-  @Autowired
-  private CustomerRepository customerRepository;
+  private final CustomerRepository customerRepository;
 
   @Override
   @Transactional(rollbackFor = Exception.class)
@@ -22,8 +25,7 @@ public class CustomerServiceImpl implements CustomerService{
       throw new BusinessException("이미 존재하는 아이디입니다.");
     }
 
-    return customerRepository.save(customerDto.toEntity()).getNo();
-
+    return customerRepository.save(CustomerMapper.INSTANCE.toEntity(customerDto)).getNo();
   }
 
   @Override
@@ -39,7 +41,8 @@ public class CustomerServiceImpl implements CustomerService{
       throw new BusinessException("고객 데이터를 조회하지 못했습니다.");
     }
 
-    return new CustomerDTO(customer);
+//    return  new CustomerDTO(customer);
+    return  CustomerMapper.INSTANCE.toDto(customer);
   }
 
   @Override
