@@ -49,6 +49,10 @@ dependencies {
 	//Ribbon
 	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.2.1.RELEASE'
 
+	//Eureka Client
+	implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+
+
 	compile 'mysql:mysql-connector-java'
 
 	runtimeOnly 'com.h2database:h2'
