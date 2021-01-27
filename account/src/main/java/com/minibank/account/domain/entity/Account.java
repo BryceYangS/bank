@@ -27,35 +27,4 @@ public class Account {
   private String customerNm;
   private LocalDateTime newDtm;
 
-//  public static class Builder {
-//    // Required
-//    private final String accountNo;
-//
-//    // Optional
-//    private String accountNm;
-//    private Long accountBalance;
-//    private String customerId;
-//    private String customerNm;
-//    private LocalDateTime newDtm = LocalDateTime.now();
-//
-//    public Builder(String accountNo) {this.accountNo = accountNo;}
-//
-//    public Builder accountNm(String accountNm){this.accountNm = accountNm; return this;}
-//    public Builder accountBalance(Long accountBalance){this.accountBalance = accountBalance; return this;}
-//    public Builder customerId(String customerId){this.customerId = customerId; return this;}
-//    public Builder customerNm(String customerNm){this.customerNm = customerNm; return this;}
-//    public Builder newDtm(LocalDateTime newDtm){this.newDtm = newDtm; return this;}
-//
-//    public Account build() {return new Account(this);}
-//  }
-//
-//  private Account(Builder builder) {
-//    accountNo = builder.accountNo;
-//    accountNm = builder.accountNm;
-//    accountBalance = builder.accountBalance;
-//    customerId = builder.customerId;
-//    customerNm = builder.customerNm;
-//    newDtm = builder.newDtm;
-//  }
-
 }
