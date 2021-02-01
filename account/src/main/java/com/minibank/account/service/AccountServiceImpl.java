@@ -18,6 +18,17 @@ public class AccountServiceImpl implements AccountService{
   private final CustomerComposite customerComposite;
 
   @Override
+  public Account retrieveAccount(String accountNo) throws Exception {
+    Account account = accountRepository.findByAccountNo(accountNo);
+
+    if(account == null){
+      throw new BusinessException("존재하지 않는 계좌번호!");
+    }
+
+    return account;
+  }
+
+  @Override
   public boolean existsAccountNo(String accountNo) throws Exception {
     if (accountRepository.findByAccountNo(accountNo) != null) {
         return true;
