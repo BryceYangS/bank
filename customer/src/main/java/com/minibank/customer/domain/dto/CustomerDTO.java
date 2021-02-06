@@ -20,13 +20,4 @@ public class CustomerDTO {
     super();
   }
 
-  public CustomerDTO(Customer customer) {
-    this.customerId = customer.getCustomerId();
-    this.name = customer.getName();
-    this.birthDay = customer.getBirthDay();
-    this.gender = customer.getGender();
-    this.phoneNumber = customer.getPhoneNumber();
-    this.address = customer.getAddress();
-  }
-
 }

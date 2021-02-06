@@ -2,20 +2,16 @@ package com.minibank.account.domain.dto;
 
 
 import java.time.LocalDateTime;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Data
 public class AccountDTO {
 
   private String accountNo;
+  private String accountNm;
+  private Long accountBalance;
   private String customerId;
   private String customerNm;
-  private String accountNm;
   private LocalDateTime newDtm;
-  private Long accountBalance;
 
 }

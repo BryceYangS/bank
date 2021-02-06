@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class CustomerServiceImpl implements CustomerService{
 
   private final CustomerRepository customerRepository;
+  private final CustomerMapper customerMapper;
 
   @Override
   @Transactional(rollbackFor = Exception.class)
@@ -25,7 +26,7 @@ public class CustomerServiceImpl implements CustomerService{
       throw new BusinessException("이미 존재하는 아이디입니다.");
     }
 
-    return customerRepository.save(CustomerMapper.INSTANCE.toEntity(customerDto)).getNo();
+    return customerRepository.save(customerMapper.toEntity(customerDto)).getNo();
   }
 
   @Override
@@ -42,7 +43,7 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
 //    return  new CustomerDTO(customer);
-    return  CustomerMapper.INSTANCE.toDto(customer);
+    return  customerMapper.toDto(customer);
   }
 
   @Override
