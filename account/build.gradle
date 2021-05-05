@@ -1,7 +1,7 @@
 plugins {
-	id 'org.springframework.boot' version '2.3.8.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-	id 'java'
+    id 'org.springframework.boot' version '2.3.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
 }
 
 group = 'com.minibank'
@@ -9,69 +9,68 @@ version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	// lombok
-	compileOnly 'org.projectlombok:lombok:1.18.16'
-	annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
 
-	// MapStruct
-	implementation 'org.mapstruct:mapstruct:1.4.1.Final'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.4.1.Final'
+    // modelMapper
+    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.1.1'
 
-	//Kafka
-	compile('org.springframework.kafka:spring-kafka')
+    //Kafka
+    compile('org.springframework.kafka:spring-kafka')
 
-	//Json
-	compile('com.google.code.gson:gson:2.8.5')
+    //Json
+    compile('com.google.code.gson:gson:2.8.5')
 
-	//swagger
-	compile 'io.springfox:springfox-swagger2:2.7.0';
-	compile 'io.springfox:springfox-swagger-ui:2.7.0';
+    //swagger
+    compile 'io.springfox:springfox-swagger2:2.7.0';
+    compile 'io.springfox:springfox-swagger-ui:2.7.0';
 
-	//Logging
-	compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
+    //Logging
+    compile group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
 
-	//Actuator
-	compile('org.springframework.boot:spring-boot-starter-actuator')
+    //Actuator
+    compile('org.springframework.boot:spring-boot-starter-actuator')
 
-	//Hystrix
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.1.RELEASE'
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix-dashboard', version: '2.2.1.RELEASE'
+    //Hystrix
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix', version: '2.2.1.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-hystrix-dashboard', version: '2.2.1.RELEASE'
 
-	//Ribbon
-	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.2.1.RELEASE'
+    //Ribbon
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-ribbon', version: '2.2.1.RELEASE'
 
-	//Eureka Client
-	implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
+    //Eureka Client
+    implementation('org.springframework.cloud:spring-cloud-starter-netflix-eureka-client')
 
 
-	compile 'mysql:mysql-connector-java'
+    compile 'mysql:mysql-connector-java'
 
-	runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'com.h2database:h2'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.6.1'
 
 }
 
 ext {
-	set('springCloudVersion', "Hoxton.SR8")
+    set('springCloudVersion', "Hoxton.SR8")
 }
 
 dependencyManagement {
-	imports {
-		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-	}
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
 
 test {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }

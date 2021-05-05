@@ -1,9 +1,12 @@
 package com.minibank.account.domain.repository;
 
-import com.minibank.account.domain.entity.Account;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.minibank.account.domain.entity.Account;
+
 public interface AccountRepository extends JpaRepository<Account, Long> {
-  Account findByAccountNo(String accountNo) throws Exception;
+	Optional<Account> findByAccountNo(String accountNo) throws Exception;
 
 }
